@@ -142,11 +142,27 @@ The FWA Migration program stream is currently exhibiting severe delivery compres
     if (activeTab === 'proto3') handlePrototype3Automated();
   };
 
-  const handleSendEmail = () => {
-    const emailTo = distributionList.join(',');
-    const emailSubject = encodeURIComponent(`FWA Pseudo MDN Migration Command Center Update - 05/31/2026`);
-    const emailBody = encodeURIComponent(aiResult);
-    window.location.href = `mailto:${emailTo}?subject=${emailSubject}&body=${emailBody}`;
+  // Robust Clipboard Copy & Mail Client Trigger Pipeline
+  const handleSendEmail = async () => {
+    try {
+      // 1. Write the editable status text directly into the system clipboard
+      await navigator.clipboard.writeText(aiResult);
+      
+      // 2. Alert the processing logs so the user knows it copied successfully
+      setSecurityLog(prev => [
+        ...prev, 
+        "📋 SUCCESS: Executive report copied to system clipboard.",
+        "📬 Launching default mail client sandbox..."
+      ]);
+
+      // 3. Trigger a compact, safe mailto wrapper that won't exceed corporate browser length limits
+      const emailTo = distributionList.join(',');
+      const emailSubject = encodeURIComponent(`FWA Pseudo MDN Migration Command Center Update - 05/31/2026`);
+      window.location.href = `mailto:${emailTo}?subject=${emailSubject}&body=%5BPress%20Ctrl%2BV%20or%20Cmd%2BV%20to%20paste%20the%20compiled%20report%20here%5D`;
+    } catch (error) {
+      console.error(error);
+      setSecurityLog(prev => [...prev, "⚠️ Clipboard error: Check browser security access."]);
+    }
   };
 
   return (
