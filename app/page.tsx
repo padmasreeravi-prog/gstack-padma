@@ -158,6 +158,7 @@ The FWA Migration program stream is currently exhibiting severe delivery compres
       </header>
 
       {/* Tabs */}
+      {/* Navigation Tabs - Upgraded to Strategic Executive Nomenclature */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 border-b border-slate-800 mb-8 w-full max-w-3xl p-1 bg-slate-900 rounded-xl">
         <button
           onClick={() => { setActiveTab('proto1'); setAiResult(''); setSecurityLog([]); setKpis([]); }}
@@ -165,7 +166,7 @@ The FWA Migration program stream is currently exhibiting severe delivery compres
             activeTab === 'proto1' ? 'bg-cyan-600 text-slate-950' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          🌐 Proto 1: Cloud AI
+          🌐 1. External LLM Translation Gateway
         </button>
         <button
           onClick={() => { setActiveTab('proto2'); setAiResult(''); setSecurityLog([]); setKpis([]); }}
@@ -173,7 +174,7 @@ The FWA Migration program stream is currently exhibiting severe delivery compres
             activeTab === 'proto2' ? 'bg-cyan-600 text-slate-950' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          🛡️ Proto 2: Secure Air-Gap
+          🛡️ 2. Air-Gapped Compliance Router
         </button>
         <button
           onClick={() => { setActiveTab('proto3'); setAiResult(''); setSecurityLog([]); setKpis([]); }}
@@ -181,10 +182,10 @@ The FWA Migration program stream is currently exhibiting severe delivery compres
             activeTab === 'proto3' ? 'bg-cyan-600 text-slate-950' : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          📬 Proto 3: Automated Broadcast
+          📊 3. Automated Governance Control Hub
         </button>
       </div>
-
+      
       <main className="w-full max-w-3xl space-y-6">
         {/* Input Console */}
         <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 shadow-xl">
